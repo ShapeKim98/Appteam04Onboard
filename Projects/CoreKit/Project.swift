@@ -22,7 +22,6 @@ let project = Project(
             product: .staticLibrary,
             bundleId: .moduleBundleId(name: "CoreKit"),
             deploymentTargets: .appMinimunTarget,
-            infoPlist: .file(path: .relativeToRoot("Projects/App/Resources/Appteam04OnBoard-info.plist")),
             sources: ["Sources/**"],
             dependencies: [
                 .target(networkTarget)
