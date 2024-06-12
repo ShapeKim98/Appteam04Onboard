@@ -10,11 +10,7 @@ let project = Project(
             product: .app,
             bundleId: .appBundleId,
             deploymentTargets: .appMinimunTarget,
-            infoPlist: .extendingDefault(
-                with: [
-                    "UILaunchStoryboardName": "LaunchScreen.storyboard",
-                ]
-            ),
+            infoPlist: .file(path: .relativeToRoot("Projects/App/Resources/Appteam04OnBoard-info.plist")),
             sources: ["Sources/**"],
             resources: ["Resources/**"],
             dependencies: [

@@ -10,9 +10,7 @@ let project = Project(
             product: .framework,
             bundleId: .moduleBundleId(name: "Feature"),
             deploymentTargets: .appMinimunTarget,
-            infoPlist: .extendingDefault(
-                with: [:]
-            ),
+            infoPlist: .file(path: .relativeToRoot("Projects/App/Resources/Appteam04OnBoard-info.plist")),
             sources: ["Sources/**"],
             resources: ["Resources/**"],
             dependencies: [
