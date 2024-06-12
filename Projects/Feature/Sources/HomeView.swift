@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import ThirdPartyLib
 import ComposableArchitecture
 
 public struct HomeView: View {
