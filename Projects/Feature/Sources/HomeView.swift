@@ -9,7 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 public struct HomeView: View {
-    @Bindable var store: StoreOf<HomeFeature>
+    @Perception.Bindable var store: StoreOf<HomeFeature>
     
     public init(store: StoreOf<HomeFeature>) {
         self.store = store
