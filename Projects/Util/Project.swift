@@ -1,13 +1,15 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let project = Project(
     name: "Util",
     targets: [
         .target(
             name: "Util",
-            destinations: .iOS,
+            destinations: .appDestinations,
             product: .staticLibrary,
-            bundleId: "io.tuist.Util",
+            bundleId: .moduleBundleId(name: "Util"),
+            deploymentTargets: .appMinimunTarget,
             infoPlist: .extendingDefault(
                 with: [:]
             ),

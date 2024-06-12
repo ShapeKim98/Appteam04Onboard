@@ -1,13 +1,15 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let project = Project(
     name: "ThirdPartyLib",
     targets: [
         .target(
             name: "ThirdPartyLib",
-            destinations: .iOS,
+            destinations: .appDestinations,
             product: .staticLibrary,
-            bundleId: "io.tuist.ThirdPartyLib",
+            bundleId: .moduleBundleId(name: "ThirdPartyLib"),
+            deploymentTargets: .appMinimunTarget,
             infoPlist: .extendingDefault(
                 with: [:]
             ),

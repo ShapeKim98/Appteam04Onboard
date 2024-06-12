@@ -1,13 +1,15 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let project = Project(
     name: "DSKit",
     targets: [
         .target(
             name: "DSKit",
-            destinations: .iOS,
+            destinations: .appDestinations,
             product: .staticFramework,
-            bundleId: "io.tuist.DSKit",
+            bundleId: .moduleBundleId(name: "DSKit"),
+            deploymentTargets: .appMinimunTarget,
             infoPlist: .extendingDefault(
                 with: [:]
             ),
