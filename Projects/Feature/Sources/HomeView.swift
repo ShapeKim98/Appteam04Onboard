@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-import ThirdPartyLib
 import ComposableArchitecture
 
 public struct HomeView: View {
-    @Bindable var store: StoreOf<HomeFeature>
+    @Perception.Bindable var store: StoreOf<HomeFeature>
     
     public init(store: StoreOf<HomeFeature>) {
         self.store = store
@@ -19,9 +18,10 @@ public struct HomeView: View {
     public var body: some View {
         VStack {
             HStack {
-                Button("-") { store.send(.minusButtonTapped) }
+                Button("-") { store.send(.minusButtonTapped, animation: .snappy) }
                 Text("\(store.state.num)")
-                Button("+") { store.send(.plusButtonTapped) }
+                    .contentTransition(.numericText())
+                Button("+") { store.send(.plusButtonTapped, animation: .snappy) }
             }
             Button("Select") {
                 store.send(.selectButtonTapped)

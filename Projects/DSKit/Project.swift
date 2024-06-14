@@ -1,16 +1,16 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let project = Project(
     name: "DSKit",
     targets: [
         .target(
             name: "DSKit",
-            destinations: .iOS,
+            destinations: .appDestinations,
             product: .staticFramework,
-            bundleId: "io.tuist.DSKit",
-            infoPlist: .extendingDefault(
-                with: [:]
-            ),
+            bundleId: .moduleBundleId(name: "DSKit"),
+            deploymentTargets: .appMinimunTarget,
+            infoPlist: .file(path: .relativeToRoot("Projects/App/Resources/Appteam04OnBoard-info.plist")),
             sources: ["Sources/**"],
             resources: ["Resources/**"],
             dependencies: [

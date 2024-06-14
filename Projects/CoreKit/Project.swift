@@ -1,21 +1,32 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
+
+let networkTarget = Target.target(
+    name: "CoreNetwork",
+    destinations: .appDestinations,
+    product: .staticLibrary,
+    bundleId: "\(String.moduleBundleId(name: "CoreKit")).CoreNetwork",
+    deploymentTargets: .appMinimunTarget,
+    sources: ["Sources/Network/**"],
+    dependencies: [
+        .project(target: "ThirdPartyLib", path: .relativeToRoot("Projects/ThirdPartyLib")),
+        .project(target: "Util", path: .relativeToRoot("Projects/Util"))
+    ])
 
 let project = Project(
     name: "CoreKit",
     targets: [
         .target(
             name: "CoreKit",
-            destinations: .iOS,
+            destinations: .appDestinations,
             product: .staticLibrary,
-            bundleId: "io.tuist.CoreKit",
-            infoPlist: .extendingDefault(
-                with: [:]
-            ),
+            bundleId: .moduleBundleId(name: "CoreKit"),
+            deploymentTargets: .appMinimunTarget,
             sources: ["Sources/**"],
             dependencies: [
-                .project(target: "ThirdPartyLib", path: .relativeToRoot("Projects/ThirdPartyLib")),
-                .project(target: "Util", path: .relativeToRoot("Projects/Util"))
+                .target(networkTarget)
             ]
-        )
+        ),
+        networkTarget
     ]
 )

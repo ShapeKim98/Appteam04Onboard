@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import ThirdPartyLib
 import Dependencies
 
 extension DependencyValues {

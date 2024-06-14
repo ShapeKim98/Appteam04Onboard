@@ -1,18 +1,16 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let project = Project(
-    name: "App",
+    name: "Appteam04OnBoardApp",
     targets: [
         .target(
-            name: "App",
-            destinations: .iOS,
+            name: "Appteam04OnBoardApp",
+            destinations: .appDestinations,
             product: .app,
-            bundleId: "io.tuist.App",
-            infoPlist: .extendingDefault(
-                with: [
-                    "UILaunchStoryboardName": "LaunchScreen.storyboard",
-                ]
-            ),
+            bundleId: .appBundleId,
+            deploymentTargets: .appMinimunTarget,
+            infoPlist: .file(path: .relativeToRoot("Projects/App/Resources/Appteam04OnBoard-info.plist")),
             sources: ["Sources/**"],
             resources: ["Resources/**"],
             dependencies: [
